@@ -456,6 +456,14 @@ impl<W: TerminalWriter> Terminal<W> {
         self.progress_output_with_progress_bar(output_messages, is_finished, spinner.as_ref())
             .await
     }
+    pub async fn progress_output_without_spinner(
+        &self,
+        output_messages: &Vec<String>,
+        is_finished: &Mutex<bool>,
+    ) -> Result<()> {
+        self.progress_output_with_progress_bar(output_messages, is_finished, None)
+            .await
+    }
 
     pub async fn progress_output_with_progress_bar(
         &self,

@@ -93,7 +93,7 @@ impl CreateCommand {
 
         let progress_output = opts
             .terminal
-            .progress_output(&output_messages, &is_finished);
+            .progress_output_without_spinner(&output_messages, &is_finished);
 
         let (identifier, _) = try_join!(send_req, progress_output)?;
 
